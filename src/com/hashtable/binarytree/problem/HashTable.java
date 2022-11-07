@@ -1,5 +1,6 @@
 //UC1 Ability to find frequency of words in a sentence like "To be or not to be"
 //UC2 Ability to find frequency of words in a large paragraph phrase
+//UC3 Remove avoidable word from the phrase
 package com.hashtable.binarytree.problem;
 class MyMapNode {
     String key;
@@ -28,6 +29,23 @@ public class HashTable {
             newNode.next = null;
         }
         tail = newNode;
+    }
+
+    public void remove()
+    {
+        MyMapNode current = head;
+        MyMapNode previous=null;
+
+        while (!current.key.equalsIgnoreCase("avoidable")) {
+            previous = current;
+            current = current.next;
+        }
+        if (previous==null)
+        {
+            return;
+        }
+        previous.next = current.next;
+
     }
     public void display()
     {
@@ -76,6 +94,8 @@ public class HashTable {
         HashTable hashTable = new HashTable();
         String sentence = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations\"";
         hashtable(sentence,hashTable);
+        hashTable.display();
+        hashTable.remove();
         hashTable.display();
     }
 }
