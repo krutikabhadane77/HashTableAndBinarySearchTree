@@ -1,5 +1,6 @@
 //UC4 Ability to create a BST ny adding 56 and then adding 30 & 70
 //UC5 Ability to create a BST added using size method in binary tree
+//UC6 Ability to search 63 in the binary tree
 package com.hashtable.binarytree.problem;
 
 class Node<T> {
@@ -61,6 +62,15 @@ public class BinarySearchTree<T extends Comparable<T>> {
             return (size(node.left) + 1 + size(node.right));
     }
 
+    public Node search(Node node, T data)
+    {
+        if (node==null || node.data==data)
+            return node;
+        if(data.compareTo((T)node.data)>0)
+            return search(node.right, data);
+        return search(node.left, data);
+    }
+
 
     public static void main(String[] args)
     {
@@ -82,5 +92,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
         BST.inorder();
         System.out.println("\nThe size of BST : " + BST.size());
+        BST.search(BST.root,63);
     }
 }
