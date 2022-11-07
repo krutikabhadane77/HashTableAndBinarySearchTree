@@ -1,4 +1,5 @@
 //UC1 Ability to find frequency of words in a sentence like "To be or not to be"
+//UC2 Ability to find frequency of words in a large paragraph phrase
 package com.hashtable.binarytree.problem;
 class MyMapNode {
     String key;
@@ -73,7 +74,7 @@ public class HashTable {
     }
     public static void main(String[] args) {
         HashTable hashTable = new HashTable();
-        String sentence = "To be or not to be";
+        String sentence = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations\"";
         hashtable(sentence,hashTable);
         hashTable.display();
     }
